@@ -10,21 +10,12 @@ import uz.jesko.anvildm.utils.ConsoleMSG;
 
 import java.math.BigDecimal;
 
-/**
- * Super simple economy manager class
- * Handles all economy stuff in one place - no fancy interfaces or multiple classes
- * Just simple methods that work with whatever economy plugin you have
- */
 public class Economy {
     
     public String economyType;
     private Essentials essentials;
     private PlayerPointsAPI playerPointsAPI;
-    
-    /**
-     * Setup economy based on what's configured
-     * This is called when plugin starts up
-     */
+
     public void setup(String configuredEconomy) {
         this.economyType = configuredEconomy.toLowerCase();
         
