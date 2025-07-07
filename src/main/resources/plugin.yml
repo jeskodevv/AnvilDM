@@ -1,0 +1,27 @@
+name: AnvilDM
+version: '${version}'
+main: uz.jesko.anvildm.AnvilDM
+api-version: 1.16
+authors: [jesko]
+description: Sodda va qulay donat menyu plugini
+website: https://t.me/anvildev
+
+commands:
+  donate:
+    description: donat menyuni ochish, donatni tasdiqlash va pluginni qayta yuklash
+    usage: /donate [reload|tasdiqlash|bekorqilish]
+    permission: anvildm.use
+    aliases: [donat, shop]
+
+permissions:
+  anvildm.use:
+    description: Donate buyrug'ini ishlatish uchun
+    default: true
+  anvildm.admin:
+    description: Pluginni qayta yulash uchun admin ruxsati
+    default: op
+
+softdepend:
+  - Essentials
+  - PlayerPoints
+  - LuckPerms

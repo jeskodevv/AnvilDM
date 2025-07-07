@@ -1,0 +1,225 @@
+#  █████╗ ███╗   ██╗██╗   ██╗██╗██╗     ██████╗ ███╗   ███╗
+# ██╔══██╗████╗  ██║██║   ██║██║██║     ██╔══██╗████╗ ████║
+# ███████║██╔██╗ ██║██║   ██║██║██║     ██║  ██║██╔████╔██║
+# ██╔══██║██║╚██╗██║╚██╗ ██╔╝██║██║     ██║  ██║██║╚██╔╝██║
+# ██║  ██║██║ ╚████║ ╚████╔╝ ██║███████╗██████╔╝██║ ╚═╝ ██║
+# ╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚══════╝╚═════╝ ╚═╝     ╚═╝
+# 
+# AnvilDonateMenu
+# eng sodda donate menyu plugini uchun eng sodda konfiguratsiya fayli
+# config @jeskodev tomonidan tuzib chiqilgan
+# telegram sahifamizga obuna bo'ling: t.me/anvildev
+
+#pluginning asosiy sozlanmalarini shu yerdan o'zgartirasiz
+settings:
+
+  # menyuda ko'rsatiladigan valyuta nomi, xohlasangiz $ yoki ₮ ga o'zgartiring.
+  currency: "so'm"
+
+  # valyuta uchun plugin nomi shu yerga yoziladi
+  # maqsadingizga ko'ra 3ta variantdan birini tanlashingiz mumkun
+  # none - hech qanday plugindan foydalanmaslik, shunchaki ko'rgazma menyu bo'ladi.
+  # Essentials - essentialsx pluginidan foydalanish, o'yinchilar server balansiga donate sotib ololadi.
+  # PlayerPoints - playerpoints pluginidan foydalaniladi, o'yinchilar token evaziga donate sotib oladi.
+  plugin: Essentials 
+  
+# /donate deganda ochiladigan menyu shu yerda sozlanadi
+menu:
+  title: '&3&lDonat Menyu' # menyu sarlavhasi
+  size: 3 # menyu qatorlar soni, 1-6 oraliqda qiymat qabul qiladi.
+
+  # menyu ochilganda undagi bezak uchun ko'rinadigan elementlar
+  # bu yerda donatlardan boshqa har qanday narsa bo'lishi mumkin
+  items:
+
+    # misol tariqasida yasalagan bezak element
+    # ularni har doim alifboning katta harflari bilan belgilang
+    # shunda hech qanday xatolar bo'lmaydi
+    X:
+
+      # bezak elementning materiali
+      # minecraftdagi har qanday narsani id sini yozishingiz mumkin
+      material: CYAN_STAINED_GLASS_PANE
+
+      # bezak elementni nomi
+      # ustiga sichqoncha oborilganda shu yozuv ko'rinadi!
+      name: '&3ᴀɴᴠɪʟ&7.ᴜᴢ'
+
+  # donatlar configning aynan shu qismida bo'lishi kerak
+  donates:
+
+    # misol tariqasida yasalgan donate
+    anvil:
+    
+      # menyuda har bir donat uchun maxsus id bo'ladi
+      # bu faqatgina shu menyuga aloqador, boshqa narsa bilan adashtirmang
+      # bu yerga faqatgina 1ta simvol kirita olasiz
+      # masalan alifboning har qanday harfi yoki 1-9 raqamlar
+      # faqatgina katta harflarni kiriting !!!!
+      id: 1
+      
+      # ushbu donatning luckperms dagi guruh nomi.
+      # donat guruh nomi luckpermsda qanday bo'lsa shunday qiymat kiriting
+      # bu yerda adashishga haqqingiz yo'q !!!
+      group: anvil
+      
+      # donatning menyuda aks etadigan materiali
+      # bu narsa minecraftdagi har bir element bo'lishi mumkin
+      material: CYAN_SHULKER_BOX
+      
+      # donatni menyuda ko'rinadigan nomi
+      # agar donat yonida o'yinchi nomi ham ko'rinsin desangiz
+      # %player% placeholderidan foydalaning
+      # eslatma: 
+      # %player% placeholderidan foydalansangiz
+      # o'yinchi donat olganda donat nomida xatolik bo'ladi
+      # bu narsani faqatgina ko'rgazma menyular uchun foydalaning
+      name: "&3&lᴀɴᴠɪʟ"
+      
+      # donatning menyuda ko'rinadigan izohi
+      # bu yerda donat haqida ma'lumot berishingiz mumkin
+      # agar sizning menyuyingiz shunchaki ko'rgazma uchun bo'lsa
+      # bu yerda donat narxlarini ham yozib ketish ziyon qilmaydi
+      # menyu agar qaysidir plugin bilan integratsiya qilingan bo'lsa
+      # donat narxlari avtomatik tarzda yoziladi.
+      lore:
+        - "&7Eng ajoyib donate :)"
+        - "&r "
+        - "&7Xususiyatlari:"
+        - "  &3/command qandaydir buyruq"
+        - "  &3/command2 qandaydir buyruq 2"
+        - "  &3You will be cool dude :) &7(just kidding)"
+        - "&r "
+        - "&7tezroq sotib oling!!!"
+        #- "&3Narx: &76,666 so'm :)"
+      
+      # donat uchun narx shu yerda belgilanadi
+      # eslatma:
+      # agar menyu ko'rgazma uchun bo'lsa bu narsa ishlamaydi!!!
+      price: 6666
+      
+      # ushbu izoh faqatgina menyu qaysidir plugin bilan
+      # integratsiya qilinganda ishlaydi, bu izohdan 
+      # faqatgina mahsulot narxini ko'rsatish uchun foydalaniladi
+      price-lore:
+        - "&r"
+        - "&7Narx: &3{price} {currency}"
+        - "&7Balans: &3{balance} {currency}"
+        - "&r"
+        - "&7Sotib olish uchun bosing"
+    vip:
+      id: 2
+      group: vip
+      material: LIME_SHULKER_BOX
+      name: "&a&lᴠɪᴘ"
+      lore:
+        - "&7Xususiyatlari:"
+        - "  &a/command qandaydir buyruq"
+        - "  &a/command2 qandaydir buyruq 2"
+        - "&r "
+        - "&7Region limit: &aexample"
+        #- "&r"
+        #- "&aNarx: &710,000 so'm :)"
+      price: 10000
+      price-lore:
+        - "&r"
+        - "&7Narx: &a{price} {currency}"
+        - "&7Balans: &a{balance} {currency}"
+        - "&r"
+        - "&7Sotib olish uchun bosing"
+    pro:
+      id: P
+      group: pro
+      material: BLUE_SHULKER_BOX
+      name: "&9&lᴘʀᴏ"
+      lore:
+        - "&7Eng ajoyib donate :)"
+        - "&r "
+        - "&7Xususiyatlari:"
+        - "  &9/command qandaydir buyruq"
+        - "  &9/command2 qandaydir buyruq 2"
+        - "&r "
+        - "&7Region limit: &aexample"
+        - "&7Uylar soni: &9example"
+        #- "&r"
+        #- "&9Narx: &715,000 so'm :)"
+      price: 15000
+      price-lore:
+        - "&r"
+        - "&7Narx: &9{price} {currency}"
+        - "&7Balans: &9{balance} {currency}"
+        - "&r"
+        - "&7Sotib olish uchun bosing"
+    mvp:
+      id: M
+      group: mvp
+      material: YELLOW_SHULKER_BOX
+      name: "&e&lᴍᴠᴘ"
+      lore:
+        - "&7Eng ajoyib donate :)"
+        - "&r "
+        - "&7Xususiyatlari:"
+        - "  &e/command qandaydir buyruq"
+        - "  &e/command2 qandaydir buyruq 2"
+        - "&r "
+        - "&7Region limit: &aexample"
+        - "&7Uylar soni: &eexample"
+        - "&7Kit: &eexampleKit"
+        #- "&r"
+        #- "&eNarx: &720,000 so'm :)"
+      price: 20000
+      price-lore:
+        - "&r"
+        - "&7Narx: &e{price} {currency}"
+        - "&7Balans: &e{balance} {currency}"
+        - "&r"
+        - "&7Sotib olish uchun bosing"
+      
+  # yuqoridagi elementlar menyuning qayerida bo'lishi shu yerda sozlanadi
+  # donatlarni faqatgina id lari yoziladi.
+  # iltimos faqatgina raqamlar va alifboning katta harflaridan foydalaning
+  inventory:
+    - X X X X X X X X X
+    - X 1 X 2 X P X M X
+    - X X X X X X X X X
+
+# plugin xabarlarini shu yerdan sozlang
+messages:
+  
+  # o'yinchi donat sotib olayotganda tasdiqlash xabari
+  buy-confirm:
+    - "&7Rostdan ham &3{price} {curreency} &7evaziga {donate} &7sotib olmoqchimisiz?"
+  buy-yes-btn: "&#00ff00Tasdiqlayman"
+  buy-no-btn: "&#ff0000Bekor qilish"  
+
+  # o'yinchi donat sotib olganda unga yuboriladigan xabar
+  buy: "&fSiz &3{price} {currency} &fevaziga {donate} &7sotib oldingiz."
+  
+  # o'yinchini donat sotib olishga puli yatmaganda unga yuboriladigan xabar
+  buy-nomoney: 
+    - "&r"
+    - "&fBalansingizda mablag' yetarli emas"
+    - "&7Balansingizni to'ldirish uchun: &3t.me/anvildev"
+    - "&r"
+  
+  # agar yuqorida plugin kiritilmagan bo'lsa va menyu faqat ko'rgazma uchun bo'lsa
+  # bu yerda o'yinchi donatni ustiga bosganda qanday xabar yuborilishi kiritailadi
+  buy-noplugin:
+    - "&r"
+    - "&7Donatni faqatgina do'konimizdan sotib ololasiz"
+    - "&7Do'kon manzili: &3t.me/anvildev"
+    - "&r"
+  
+  # o'yinchi menyu orqali donat sotib olganda 
+  # chatga sotib olingan donat haqida ma'lumot yuboradigan
+  # xabarni shu yerdan sozlashingiz mumkin
+  # bu xabar barcha o'yinchilarga ko'rinadi!!!
+  broadcast:
+    - "&r"
+    - "&3╔═══════════════════════╗"
+    - "&3║"
+    - "&3║  &3{player} &7hozirgina {donate} &7sotib oldi!"
+    - "&3║  &7Donate sotib olish uchun: &3/donate"
+    - "&3║"
+    - "&3╚═══════════════════════╝"
+    - "&r"
