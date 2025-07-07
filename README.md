@@ -4,11 +4,13 @@ AnvilDM – bu **foydalanuvchilar uchun qulay va zamonaviy donate menyu** taqdim
 
 ![version](https://img.shields.io/badge/version-1.6.5-brightgreen.svg) ![license](https://img.shields.io/badge/license-GPL3.0-blue.svg)
 
+
 ## ⚙ Texnik talablar (minimal)
 
 - Java 16 ☕️
 - Paper 1.16.5 ⚒️
 - EssintialsX yoki PlayerPoints plugini (ixtiyoriy)
+
 
 ## ✨ Asosiy Imkoniyatlar
 
@@ -20,12 +22,14 @@ AnvilDM – bu **foydalanuvchilar uchun qulay va zamonaviy donate menyu** taqdim
 - ✅ Barcha xabarlar va menyu elementlari `config.yml` orqali sozlanadi
 - ✅ Lokalizatsiya (O'zbek tilida)
 
+
 ## 🛠 O‘rnatish
 
 1. `AnvilDM.jar` faylini `plugins/` papkangizga joylashtiring
 2. Serverni ishga tushiring yoki `/reload` qiling
 3. `config.yml` fayli avtomatik yaratiladi
 4. Sozlamalarni o‘zgartiring va `/donate reload` orqali yangilang
+
 
 ## 🔧 Buyruqlar
 
@@ -36,6 +40,7 @@ AnvilDM – bu **foydalanuvchilar uchun qulay va zamonaviy donate menyu** taqdim
 | `/donate cancel`          | Xaridni bekor qilish             |
 | `/donate reload`          | Konfiguratsiyani qayta yuklash (op) |
 
+
 ## 🔐 Ruxsatlar
 
 | Ruxsat                      | Ta'rifi                             |
@@ -43,11 +48,13 @@ AnvilDM – bu **foydalanuvchilar uchun qulay va zamonaviy donate menyu** taqdim
 | `anvildm.use`              | Asosiy menyuga kirish huquqi        |
 | `anvildm.admin`            | Reload va boshqa admin funksiyalar |
 
+
 ## 🔗 Integratsiyalar
 
 - 🔹 **EssentialsX** – balans asosida xarid
 - 🔹 **PlayerPoints** – token orqali xarid
 - Agar plugin integratsiya qilinmasa menyu shunchaki ko'rgazma sifatida ishlaydi
+
 
 ## 📁 Sozlanmalar
 ### `config.yml` ichida quyidagilarni sozlashingiz mumkun!
@@ -58,15 +65,18 @@ AnvilDM – bu **foydalanuvchilar uchun qulay va zamonaviy donate menyu** taqdim
 - Plugin xabarlarini o‘zgartirish
 - Har bir funksiya haqida qo'llanma-izoh
 
+
 ## ❓ Yordam
 
 Agar sizda savollar yoki muammolar bo‘lsa:
 📬 Telegram: [@jeskodev](https://t.me/jeskodev)
 
+
 ## 🧑‍💻 Muallif
 
 - 👨‍💻 Developer: `t.me/jeskodev`
 - 🌐 Loyiha: `AnvilDev` Community
+
 
 ## 📜 Litsenziya
 
