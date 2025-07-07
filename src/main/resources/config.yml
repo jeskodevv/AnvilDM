@@ -189,8 +189,8 @@ messages:
   # o'yinchi donat sotib olayotganda tasdiqlash xabari
   buy-confirm:
     - "&7Rostdan ham &3{price} {curreency} &7evaziga {donate} &7sotib olmoqchimisiz?"
-  buy-yes-btn: "&#00ff00Tasdiqlayman"
-  buy-no-btn: "&#ff0000Bekor qilish"  
+  buy-yes-btn: "&aTasdiqlayman"
+  buy-no-btn: "&cBekor qilish"  
 
   # o'yinchi donat sotib olganda unga yuboriladigan xabar
   buy: "&fSiz &3{price} {currency} &fevaziga {donate} &7sotib oldingiz."
