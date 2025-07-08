@@ -12,7 +12,7 @@ public class ColorUtils {
     public static String colorize(String text) {
         if (text == null) return "";
         
-        // Handle hex colors
+        //hex
         Matcher matcher = HEX_PATTERN.matcher(text);
         while (matcher.find()) {
             String hexCode = matcher.group(1);
@@ -20,7 +20,7 @@ public class ColorUtils {
             text = text.replace("&#" + hexCode, replacement);
         }
         
-        // Handle legacy color codes
+        //legacy
         text = ChatColor.translateAlternateColorCodes('&', text);
         
         return text;
@@ -29,10 +29,10 @@ public class ColorUtils {
     public static String stripColor(String text) {
         if (text == null) return "";
         
-        // First handle hex colors
+        //hex-first
         text = HEX_PATTERN.matcher(text).replaceAll("");
         
-        // Then strip legacy colors
+        //then legacy
         return ChatColor.stripColor(text);
     }
 }

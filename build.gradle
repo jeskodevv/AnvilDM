@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'uz.jesko'
-version = '1.6.5'
+version = '1.6.7'
 archivesBaseName = 'AnvilDM'
 
 java {
@@ -13,18 +13,9 @@ java {
 
 repositories {
     mavenCentral()
-    maven {
-        name = 'papermc-repo'
-        url = 'https://repo.papermc.io/repository/maven-public/'
-    }
-    maven {
-        name = 'essentials-repo'
-        url = 'https://repo.essentialsx.net/releases/'
-    }
-    maven {
-        name = 'rosewood-repo'
-        url = 'https://repo.rosewooddev.io/repository/public/'
-    }
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.essentialsx.net/releases/' }
+    maven { url = 'https://repo.rosewooddev.io/repository/public/' }
 }
 
 dependencies {
@@ -34,6 +25,24 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
+
+task generateVersion {
+    doLast {
+        file("src/main/java/uz/jesko/anvildm/Version.java").text = """
+package uz.jesko.anvildm;
+
+public class Version {
+    public static final String VERSION = "$version";
+}
+"""
+    }
+}
+
+clean {
+    delete file("src/main/java/uz/jesko/anvildm/Version.java")
+}
+
+compileJava.dependsOn generateVersion
 
 processResources {
     def props = [version: version]

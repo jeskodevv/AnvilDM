@@ -209,7 +209,7 @@ public class DonateMenu implements Listener {
         TextComponent noButton = new TextComponent(ColorUtils.colorize(config.getBuyNoBtn()));
         noButton.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/donate bekorqilish"));
         noButton.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, 
-            new ComponentBuilder(ColorUtils.colorize("&cClick to cancel")).create()));
+            new ComponentBuilder(ColorUtils.colorize("&cBekor qilish uchun bosing")).create()));
 
         mainMessage.addExtra("\n");
         mainMessage.addExtra(yesButton);

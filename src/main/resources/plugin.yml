@@ -4,7 +4,7 @@ main: uz.jesko.anvildm.AnvilDM
 api-version: 1.16
 authors: [jesko]
 description: Sodda va qulay donat menyu plugini
-website: https://t.me/anvildev
+website: https://www.spigotmc.org/resources/anvildm.126740/
 
 commands:
   donate:

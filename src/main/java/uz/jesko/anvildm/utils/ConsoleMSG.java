@@ -1,6 +1,8 @@
 package uz.jesko.anvildm.utils;
 
 import org.bukkit.Bukkit;
+import uz.jesko.anvildm.Version;
+
 
 public class ConsoleMSG {
 
@@ -18,7 +20,7 @@ public class ConsoleMSG {
         color("&3╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚══════╝╚═════╝ ╚═╝     ╚═╝");
         color("&fInfo: Donate Menyu uchun plugin");
         color("&fStatus: &x&0&0&f&f&0&0yondi");
-        color("&fVersiya: &a${version}");
+        color("&fVersiya: " + Version.VERSION);
         color("&r");
         color("&7by jeskodev");
         color("&7join &3t.me/anvildev");
@@ -35,7 +37,7 @@ public class ConsoleMSG {
         color("&3╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚══════╝╚═════╝ ╚═╝     ╚═╝");
         color("&fInfo: Donate Menyu uchun plugin");
         color("&fStatus: &x&f&f&0&0&0&0o'chdi");
-        color("&fVersiya: &a${version}");
+        color("&fVersiya: " + Version.VERSION);
         color("&r");
         color("&7by jeskodev");
         color("&7join &3t.me/anvildev");

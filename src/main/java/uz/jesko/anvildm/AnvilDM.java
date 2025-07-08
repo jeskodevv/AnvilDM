@@ -116,7 +116,7 @@ public final class AnvilDM extends JavaPlugin {
         }
 
         if (economy.isEnabled() && !economy.takeMoney(player, item.getPrice())) {
-            player.sendMessage(ColorUtils.colorize("&cCouldn't take your money! Contact admin."));
+            player.sendMessage(ColorUtils.colorize("&cHisobingizdan pul yechib bo'lmadi, adminga murojat qiling."));
             return;
         }
 
