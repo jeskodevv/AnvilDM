@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'uz.jesko'
-version = '1.6.8-BETA'
+version = '1.6.8'
 archivesBaseName = 'AnvilDM'
 
 java {
