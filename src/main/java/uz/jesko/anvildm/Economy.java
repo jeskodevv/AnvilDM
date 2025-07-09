@@ -43,7 +43,7 @@ public class Economy {
                 
             default:
                 economyType = "none";
-                ConsoleMSG.economyDisabled();
+                //ConsoleMSG.economyDisabled();
                 break;
         }
     }

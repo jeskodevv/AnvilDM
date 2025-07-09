@@ -2,11 +2,11 @@ package uz.jesko.anvildm;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import uz.jesko.anvildm.utils.ColorUtils;
 import uz.jesko.anvildm.utils.ConsoleMSG;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +56,7 @@ public final class AnvilDM extends JavaPlugin {
         boolean economySetup = economy.isEconomyAvailable();
         ConsoleMSG.pluginEnabled(economySetup);
 
-        if (!economySetup) {
+        if (!economySetup && ("essentials".equalsIgnoreCase(ecoPlugin) || "playerpoints".equalsIgnoreCase(ecoPlugin))) {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
@@ -81,7 +81,7 @@ public final class AnvilDM extends JavaPlugin {
             String ecoPlugin = config.getEconomyPlugin();
 
             if (ecoPlugin == null || ecoPlugin.isEmpty()) {
-                ConsoleMSG.error("Economy plugin konfigda ko'rsatilmagan!");
+                ConsoleMSG.error("Integratsiya plugini konfigda ko'rsatilmagan!");
                 return;
             }
 
@@ -111,12 +111,14 @@ public final class AnvilDM extends JavaPlugin {
             List<String> messages = config.getMessageList("buy-nomoney");
             for (String message : messages) {
                 player.sendMessage(ColorUtils.colorize(message));
+                player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0f, 1.0f);
             }
             return;
         }
 
         if (economy.isEnabled() && !economy.takeMoney(player, item.getPrice())) {
             player.sendMessage(ColorUtils.colorize("&cHisobingizdan pul yechib bo'lmadi, adminga murojat qiling."));
+            player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0f, 1.0f);
             return;
         }
 
@@ -135,10 +137,12 @@ public final class AnvilDM extends JavaPlugin {
                 player.sendMessage(ColorUtils.colorize(buyMessage));
 
                 broadcastPurchase(player, item);
+                player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
                 
                 ConsoleMSG.playerBought(player.getName(), ColorUtils.stripColor(item.getName()), item.getPrice(), config.getCurrency());
             } else {
                 player.sendMessage(ColorUtils.colorize("&cRankni berib bolmadi, adminga murojat qiling."));
+                player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0f, 1.0f);
                 ConsoleMSG.failedLuckPermsCommand(command);
             }
         });

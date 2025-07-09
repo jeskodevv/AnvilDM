@@ -1,10 +1,15 @@
 package uz.jesko.anvildm.utils;
 
+import lombok.Getter;
 import org.bukkit.Bukkit;
+import uz.jesko.anvildm.Config;
+import uz.jesko.anvildm.Economy;
 import uz.jesko.anvildm.Version;
 
 
 public class ConsoleMSG {
+    @Getter
+    public static Config config;
 
     public static void color(String message) {
         Bukkit.getServer().getConsoleSender().sendMessage(ColorUtils.colorize(message));
@@ -45,19 +50,21 @@ public class ConsoleMSG {
     }
 
     public static void pluginEnabled(boolean economyEnabled) {
-        color("&aAnvilDM yondi! Plugin: " + (economyEnabled ? "&2ON" : "&cOFF"));
+        color("&aIntegratsiya: " + (economyEnabled ? "&2Ulangan" : "&cUlanmagan"));
     }
 
+    /*
     public static void configLoaded(String currency, String economyPlugin) {
-        color("&aKonfiguratsiya yuklandi! Valyuta: &e" + currency + "&a, Plugin: &e" + economyPlugin);
+        color("&aKonfiguratsiya yuklandi! Valyuta: &e" + currency + "&a, Integratsiya: &e" + economyPlugin);
     }
+    */
 
     public static void configError(String error) {
         color("&cKonfiguratsiyani yuklab bo'lmadi: " + error);
     }
 
     public static void itemsLoaded(int decorativeItems, int donateItems) {
-        color("&aLoaded " + decorativeItems + " decorative items and " + donateItems + " donate items");
+        color("&a" + decorativeItems + "ta dekorativ va " + donateItems + "ta donat elementlari yuklandi");
     }
 
     public static void messagesLoaded() {
@@ -92,9 +99,11 @@ public class ConsoleMSG {
         color("&aPlugin: PlayerPoints ishlatilyabdi");
     }
 
+    /*
     public static void economyDisabled() {
         color("&7Plugin: O'chirilgan (faqatgina ko'rgazma uchun menyu)");
     }
+    */
 
     public static void essentialsNotFound() {
         color("&cPlugin: EssentialsX topilmadi!");
@@ -124,15 +133,19 @@ public class ConsoleMSG {
         color("&c" + message);
     }
 
+    /*
     public static void warning(String message) {
         color("&e" + message);
     }
+    */
 
     public static void info(String message) {
         color("&f" + message);
     }
 
+    /*
     public static void success(String message) {
         color("&a" + message);
     }
+     */
 }

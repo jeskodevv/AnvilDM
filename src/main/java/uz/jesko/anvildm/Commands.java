@@ -11,14 +11,12 @@ public class Commands implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        
-        // Handle different commands
+
         String commandName = command.getName().toLowerCase();
         
         switch (commandName) {
             case "donate":
             case "donat":
-            case "donatemenu":
                 return handleDonateCommand(sender, args);
 
             default:
@@ -114,7 +112,7 @@ public class Commands implements CommandExecutor {
         DonateMenu.DonateItem item = AnvilDM.getInstance().getPendingPurchase(player.getUniqueId());
         
         if (item == null) {
-            player.sendMessage(ColorUtils.colorize("&cBekor qilish uchun hec hnarsa yo'q."));
+            player.sendMessage(ColorUtils.colorize("&cBekor qilish uchun hech hnarsa yo'q."));
             return true;
         }
         

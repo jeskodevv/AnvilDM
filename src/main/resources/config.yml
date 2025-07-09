@@ -21,7 +21,7 @@ settings:
   # none - hech qanday plugindan foydalanmaslik, shunchaki ko'rgazma menyu bo'ladi.
   # Essentials - essentialsx pluginidan foydalanish, o'yinchilar server balansiga donate sotib ololadi.
   # PlayerPoints - playerpoints pluginidan foydalaniladi, o'yinchilar token evaziga donate sotib oladi.
-  plugin: Essentials 
+  plugin: none #agar sizda ikkala plugindan birontasi ham o'rnatilmagan bo'lsa bunga tegmang
   
 # /donate deganda ochiladigan menyu shu yerda sozlanadi
 menu:
@@ -209,6 +209,15 @@ messages:
     - "&r"
     - "&7Donatni faqatgina do'konimizdan sotib ololasiz"
     - "&7Do'kon manzili: &3t.me/anvildev"
+    - "&r"
+
+  # Agar o'yinchi sotib olmoqchi bo'lgan donate
+  # yoki undan teparog'i unda allaqachon mavjud
+  # bo'lsa o'yinchiga yuboriladigan xabar
+  buy-exist:
+    - "&r"
+    - "&7  Sizda allaqachon shu yoki shundan yuqori"
+    - "&7  darajali donate bor! &x&f&f&0&0&0&0Sotib ololmaysiz!"
     - "&r"
   
   # o'yinchi menyu orqali donat sotib olganda 

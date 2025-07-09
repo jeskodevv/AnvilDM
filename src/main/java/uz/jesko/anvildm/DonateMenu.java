@@ -1,10 +1,15 @@
 package uz.jesko.anvildm;
 
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.model.group.Group;
+import net.luckperms.api.model.user.User;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,12 +19,15 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 import uz.jesko.anvildm.utils.ColorUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static uz.jesko.anvildm.utils.ConsoleMSG.config;
 
 public class DonateMenu implements Listener {
     
@@ -157,13 +165,43 @@ public class DonateMenu implements Listener {
         
         handleDonateClick(item);
     }
-    
+
+    public int getPlayerWeight(@NotNull String fuckingErrorsPlayerName) {
+        Player player = Bukkit.getPlayer(fuckingErrorsPlayerName);
+        LuckPerms lp = LuckPermsProvider.get();
+        User user = lp.getUserManager().loadUser(player.getUniqueId()).join();
+        String primaryGroup = user.getPrimaryGroup();
+
+        Group group = lp.getGroupManager().getGroup(primaryGroup);
+        if (group == null) return -1;
+
+        return group.getWeight().orElse(-1);
+    }
+
+    public static int getGpWeight(String group) {
+        var lp = LuckPermsProvider.get();
+        var g = lp.getGroupManager().getGroup(group);
+        return (g != null) ? g.getWeight().orElse(-1) : -1;
+    }
+
     //click handler but this time its for donate items
     private void handleDonateClick(DonateItem item) {
         if (!AnvilDM.getInstance().getEconomy().isEnabled()) {
             List<String> messages = AnvilDM.getInstance().getFuckingErrorsConfig().getMessageList("buy-noplugin");
             for (String message : messages) {
                 player.sendMessage(ColorUtils.colorize(message));
+                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 1.0f, 1.0f);
+                player.closeInventory();
+            }
+            return;
+        }
+
+        if (getGpWeight(item.getGroup()) <= getPlayerWeight(player.getName())) {
+            List<String> messages =  AnvilDM.getInstance().getFuckingErrorsConfig().getMessageList("buy-exist");
+            for (String message : messages) {
+                player.sendMessage(ColorUtils.colorize(message));
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
+                player.closeInventory();
             }
             return;
         }
@@ -172,12 +210,15 @@ public class DonateMenu implements Listener {
             List<String> messages = AnvilDM.getInstance().getFuckingErrorsConfig().getMessageList("buy-nomoney");
             for (String message : messages) {
                 player.sendMessage(ColorUtils.colorize(message));
+                player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                player.closeInventory();
             }
             return;
         }
 
         AnvilDM.getInstance().setPendingPurchase(player.getUniqueId(), item);
         sendConfirmationMessage(item);
+        player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1.0f, 1.0f);
 
         player.closeInventory();
     }

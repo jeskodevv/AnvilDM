@@ -28,6 +28,7 @@ public class Config {
     private String buy;
     private List<String> buyNoMoney;
     private List<String> buyNoPlugin;
+    private List<String> buyExist;
     private List<String> broadcast;
     
     public Config(AnvilDM plugin) {
@@ -132,6 +133,7 @@ public class Config {
         buy = messagesSection.getString("buy", "&fSiz &3{price} {currency} &fevaziga {donate} &7sotib oldingiz.");
         buyNoMoney = messagesSection.getStringList("buy-nomoney");
         buyNoPlugin = messagesSection.getStringList("buy-noplugin");
+        buyExist = messagesSection.getStringList("buy-exist");
         broadcast = messagesSection.getStringList("broadcast");
         
         // Set defaults if any are empty
@@ -143,6 +145,9 @@ public class Config {
         }
         if (buyNoPlugin.isEmpty()) {
             buyNoPlugin = Arrays.asList("&r", "&7Donatni faqatgina do'konimizdan sotib ololasiz", "&7Do'kon manzili: &3t.me/anvildev", "&r");
+        }
+        if (buyExist.isEmpty()) {
+            buyExist =  Arrays.asList("&r", "&7&7  Sizda allaqachon shu yoki shundan yuqori", "&7  darajali donate bor! &x&f&f&0&0&0&0Sotib ololmaysiz!", "&r");
         }
         if (broadcast.isEmpty()) {
             broadcast = Arrays.asList("&r", "&3╔═══════════════════════╗", "&3║", "&3║  &3{player} &7hozirgina {donate} &7sotib oldi!", "&3║  &7Donate sotib olish uchun: &3/donate", "&3║", "&3╚═══════════════════════╝", "&r");
@@ -159,6 +164,7 @@ public class Config {
         buy = "&fSiz &3{price} {currency} &fevaziga {donate} &7sotib oldingiz.";
         buyNoMoney = Arrays.asList("&r", "&fBalansingizda mablag' yetarli emas", "&7Balansingizni to'ldirish uchun: &3t.me/anvildev", "&r");
         buyNoPlugin = Arrays.asList("&r", "&7Donatni faqatgina do'konimizdan sotib ololasiz", "&7Do'kon manzili: &3t.me/anvildev", "&r");
+        buyExist = Arrays.asList("&r", "&7&7  Sizda allaqachon shu yoki shundan yuqori", "&7  darajali donate bor! &x&f&f&0&0&0&0Sotib ololmaysiz!", "&r");
         broadcast = Arrays.asList("&r", "&3╔═══════════════════════╗", "&3║", "&3║  &3{player} &7hozirgina {donate} &7sotib oldi!", "&3║  &7Donate sotib olish uchun: &3/donate", "&3║", "&3╚═══════════════════════╝", "&r");
     }
     
@@ -180,6 +186,7 @@ public class Config {
             case "buy-confirm": return buyConfirm;
             case "buy-nomoney": return buyNoMoney;
             case "buy-noplugin": return buyNoPlugin;
+            case "buy-exist": return buyExist;
             case "broadcast": return broadcast;
             default: return Arrays.asList("&cXabarlar ro'yxati topilmadi: " + key);
         }
